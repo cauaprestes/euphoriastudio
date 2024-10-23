@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euphoria - Studio de Beleza</title>
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonte do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos para responsividade */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 150px; /* Ajuste o tamanho da logo */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-right: 10px; /* Espaço entre a logo e o texto */
+        }
+
+        .studio-name {
+            font-size: 24px; /* Tamanho da fonte do nome */
+            color: #ffffff; /* Cor do texto */
+            font-weight: 600; /* Peso da fonte */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .services-container,
+        .products-container,
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .contact-form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px; /* Adicionando espaço entre o mapa e o formulário */
+        }
+
+        input,
+        select,
+        button {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            max-width: 400px; /* Para que o formulário não fique muito largo em telas grandes */
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                display: none; /* Ocultar por padrão */
+                width: 100%; /* Largura total */
+                background-color: #333; /* Cor do fundo do menu */
+            }
+
+            .nav-links.active {
+                display: flex; /* Exibe os links quando ativo */
+            }
+
+            .menu-toggle {
+                display: block; /* Exibe o ícone do menu */
+                cursor: pointer;
+            }
+        }
+
+        .btn-whatsapp {
+            display: none; /* Oculta por padrão */
+            position: fixed; /* Para posicionar no canto inferior direito */
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* Cor do botão WhatsApp */
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 24px; /* Tamanho do ícone */
+        }
+
+        @media (max-width: 768px) {
+            .btn-whatsapp {
+                display: block; /* Exibe o botão no mobile */
+            }
+        }
+
+        /* Estilos para o carrossel de depoimentos */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden; /* Oculta os depoimentos fora da tela */
+        }
+
+        .testimonial-container {
+            display: flex; /* Alinha os depoimentos em linha */
+            transition: transform 0.5s ease; /* Transição suave para o movimento */
+        }
+
+        .testimonial-item {
+            min-width: 100%; /* Cada item ocupa toda a largura da tela */
+            box-sizing: border-box; /* Garante que o padding e a borda não afetem a largura total */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%; /* Centraliza verticalmente */
+            transform: translateY(-50%); /* Centraliza o botão */
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+            border: none; /* Remove borda */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            padding: 10px; /* Espaço interno */
+            z-index: 10; /* Coloca o botão na frente */
+        }
+
+        .carousel-button.prev {
+            left: 10px; /* Botão anterior à esquerda */
+        }
+
+        .carousel-button.next {
+            right: 10px; /* Botão próximo à direita */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Cabeçalho com navegação -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="EUPHORIA.png" alt="Logo Euphoria">
+                <span class="studio-name">Euphoria Studio de Beleza</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#products">Produtos</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#location">Onde Estamos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Home com slider -->
+    <section id="home" class="home-section">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('banner.jpg');"></div>
+            <div class="slide" style="background-image: url('image2.jpg');"></div>
+            <div class="slide" style="background-image: url('image3.jpg');"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Transforme sua Beleza com Euphoria</h1>
+            <p>Corporal • Facial • Capilar • Spa</p>
+            <a href="#services" class="btn-primary">Conheça nossos serviços</a>
+        </div>
+    </section>
+
+    <!-- Seção de serviços -->
+    <section id="services" class="services-section">
+        <h2>Nossos Serviços</h2>
+        <div class="services-container">
+            <div class="service-item">
+                <img src="corporal.jpeg" alt="Serviço Corporal" style="width: 100%;">
+                <h3>Corporal</h3>
+                <p>Massagens relaxantes, drenagem linfática e mais para cuidar do seu corpo.</p>
+            </div>
+            <div class="service-item">
+                <img src="facial.jpeg" alt="Serviço Facial" style="width: 100%;">
+                <h3>Facial</h3>
+                <p>Tratamentos de pele para uma pele radiante e saudável.</p>
+            </div>
+            <div class="service-item">
+                <img src="capilar.jpeg" alt="Serviço Capilar" style="width: 100%;">
+                <h3>Capilar</h3>
+                <p>Hidratação, coloração e cuidados capilares para realçar sua beleza.</p>
+            </div>
+            <div class="service-item">
+                <img src="spa.jpeg" alt="Serviço de Spa" style="width: 100%;">
+                <h3>Spa</h3>
+                <p>Pacotes completos de spa para relaxamento e renovação.</p>
+            </div>
+            <div class="service-item">
+                <img src="unhas.jpeg" alt="Serviço de Unhas" style="width: 100%;">
+                <h3>Unhas</h3>
+                <p>Manicure e pedicure para embelezar suas unhas.</p>
+            </div>
+            <div class="service-item">
+                <img src="produtos.jpeg" alt="Perfumes e Produtos Importados" style="width: 100%;">
+                <h3>Produtos Importados</h3>
+                <p>Vendas de perfumes e produtos importados para cuidados pessoais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de produtos -->
+    <section id="products" class="products-section">
+        <h2>Produtos Importados</h2>
+        <p>Descubra nossa seleção exclusiva de perfumes e produtos de cuidados pessoais importados. Cada produto é escolhido a dedo para oferecer o melhor para você.</p>
+        <div class="products-container">
+            <div class="product-item">
+                <h3>Perfumes</h3>
+                <p>Variedade de fragrâncias importadas para todos os gostos.</p>
+            </div>
+            <div class="product-item">
+                <h3>Shampoos e Condicionadores</h3>
+                <p>Produtos premium para o cuidado dos seus cabelos.</p>
+            </div>
+            <div class="product-item">
+                <h3>Cuidados para a Pele</h3>
+                <p>Creme hidratante, esfoliantes e muito mais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção sobre nós -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>Sobre Nós</h2>
+            <p>No Euphoria, nossa missão é oferecer o melhor em tratamentos de beleza e bem-estar. Nossa equipe é altamente treinada para garantir que você tenha uma experiência única e relaxante.</p>
+        </div>
+    </section>
+<!-- Seção de depoimentos -->
+<section id="testimonials" class="testimonials-section">
+    <h2>Depoimentos</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-item">
+            <p>"O melhor tratamento facial que já fiz! A equipe é super atenciosa e profissional."</p>
+            <span>- Cliente Satisfeita</span>
+        </div>
+        <div class="testimonial-item">
+            <p>"Ambiente incrível, saí do spa completamente renovada."</p>
+            <span>- Cliente Fiel</span>
+        </div>
+        <div class="testimonial-item">
+            <p>"Adorei a experiência! As profissionais são muito competentes e atenciosas."</p>
+            <span>- Cliente Feliz</span>
+        </div>
+        <div class="testimonial-item">
+            <p>"Os serviços são de altíssima qualidade. Com certeza voltarei!"</p>
+            <span>- Cliente Satisfeita</span>
+        </div>
+        <div class="testimonial-item">
+            <p>"O melhor atendimento que já recebi em um estúdio de beleza!"</p>
+            <span>- Cliente Grata</span>
+        </div>
+        <div class="testimonial-item">
+            <p>"Super recomendo! Meu cabelo ficou maravilhoso após o tratamento capilar."</p>
+            <span>- Cliente Encantada</span>
+        </div>
+        <div class="testimonial-item">
+            <p>"Um lugar onde você se sente em casa, sempre saio satisfeita!"</p>
+            <span>- Cliente Fiel</span>
+        </div>
+    </div>
+</section>
+
+
+    
+</section>
+
+<!-- Seção de localização e contato -->
+<section id="location" class="location-section">
+    <div class="location-container">
+        <!-- Mapa do Google -->
+        <div class="map-container">
+            <h2>Onde Estamos</h2>
+            <p>Visite-nos em nosso endereço:</p>
+            <p>Em frente ao Looby - R. Jorge Sanwais, 1602 - Centro, Foz do Iguaçu - PR</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3599.91181893427!2d-54.57901152460687!3d-25.541314077491013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f691c38347a86b%3A0xa228d080b77b50aa!2sEuphoria%20-%20Studio%20de%20Beleza!5e0!3m2!1spt-BR!2sbr!4v1729706361018!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <!-- Formulário de contato -->
+        <div class="contact-form-container">
+            <h2>Agende um Horário</h2>
+            <p>Preencha suas informações abaixo e entraremos em contato para agendar seu horário.</p>
+            <form action="https://formspree.io/f/mqakalbl" method="POST" class="contact-form">
+                <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+                <input type="email" id="email" name="email" placeholder="Seu E-mail (opcional)">
+                <input type="tel" id="telefone" name="telefone" placeholder="Seu Telefone" required>
+                <select id="servicos" name="servicos" required>
+                    <option value="" disabled selected>Selecione um Serviço</option>
+                    <option value="corporal">Corporal</option>
+                    <option value="facial">Facial</option>
+                    <option value="capilar">Capilar</option>
+                    <option value="spa">Spa</option>
+                    <option value="unhas">Unhas</option>
+                </select>
+                <textarea id="mensagem" name="mensagem" placeholder="Descreva o assunto (opcional)"></textarea>
+                <button type="submit">Agendar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Botão do WhatsApp para Desktop -->
+    <a href="https://wa.me/5545999933464" class="btn-whatsapp-desktop" target="_blank" title="Fale conosco pelo WhatsApp">WhatsApp</a>
+
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/5545999933464" class="btn-whatsapp" target="_blank" title="Fale conosco pelo WhatsApp">
+        <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2024 Euphoria - Studio de Beleza. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Link para o JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+    </div>
+</section>

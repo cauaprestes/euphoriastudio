@@ -1,0 +1,907 @@
+/* Definindo variáveis de cor */
+:root {
+    --primary-color: #462536; /* Cor principal */
+    --secondary-color: #bf7e84; /* Cor secundária */
+    --accent-color: #795f68; /* Cor de destaque */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    background-color: #1e1e1e; /* Fundo escuro */
+    line-height: 1.6;
+}
+
+/* Navegação */
+.main-header {
+    background-color: var(--primary-color); /* Usando a cor primária */
+    padding: 0 40px; /* Ajusta o padding lateral */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100px; /* Altura fixa para a barra de navegação */
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* Garante que os itens da navbar ocupem a altura inteira da barra */
+}
+
+.navbar .logo img {
+    height: 0px; /* Altura da logo */
+    width: auto; /* Mantém a proporção da largura */
+    max-height: 100%; /* Garante que a logo não ultrapasse a altura da barra */
+    object-fit: contain; /* Impede que a logo distorça */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.nav-links a {
+    color: #fff; /* Texto branco para os links */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Transição suave */
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color); /* Cor secundária ao passar o mouse */
+}
+
+.btn-book,
+.btn-primary {
+    background-color: var(--secondary-color); /* Cor secundária para botões */
+    padding: var(--spacing-small) var(--spacing-medium);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.btn-book:hover,
+.btn-primary:hover {
+    background-color: var(--accent-color); /* Cor de destaque ao passar o mouse */
+}
+
+/* Home Section */
+.home-section {
+    height: 100vh;
+    background: url('banner.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.home-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(70, 37, 54, 0.7); /* Usando a cor primária com opacidade */
+    z-index: 1; /* Overlay abaixo do conteúdo */
+}
+
+.hero-content {
+    position: relative; /* Para que o conteúdo fique acima do overlay */
+    z-index: 2; /* Coloque o conteúdo acima do overlay e dos slides */
+    color: #fff; /* Texto branco para contraste */
+    text-align: center; /* Centraliza o texto */
+    padding: var(--spacing-medium); /* Adiciona algum espaçamento ao redor do texto */
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-medium);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: var(--spacing-large);
+}
+
+/* Serviços */
+.services-section {
+    padding: var(--spacing-large);
+    background-color: #2e2e2e; /* Fundo escuro */
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 36px;
+    margin-bottom: var(--spacing-large);
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-medium);
+}
+
+.service-item {
+    background-color: var(--primary-color); /* Usando a cor primária */
+    padding: var(--spacing-medium);
+    border-radius: 10px;
+    text-align: center; /* Centraliza o texto dentro do item */
+}
+
+.service-item h3 {
+    font-size: 24px;
+    margin-bottom: var(--spacing-small);
+    color: var(--secondary-color); /* Usando a cor secundária para os títulos */
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #cfcfcf; /* Texto cinza claro para melhor legibilidade */
+}
+
+.service-item img {
+    width: 100%; /* Faz as imagens ocuparem toda a largura do item */
+    height: 200px; /* Define uma altura fixa para todas as imagens */
+    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço sem distorção */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin-bottom: var(--spacing-small); /* Espaçamento entre a imagem e o texto */
+}
+
+/* Sobre Nós */
+.about-section {
+    padding: var(--spacing-large);
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: var(--spacing-large);
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Depoimentos */
+.testimonials-section {
+    padding: var(--spacing-large);
+    background-color: #2e2e2e;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: var(--spacing-large);
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-medium);
+}
+
+.testimonial-item {
+    background-color: var(--accent-color); /* Usando a cor de destaque para depoimentos */
+    padding: var(--spacing-medium);
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.testimonial-item p {
+    font-size: 16px;
+    margin-bottom: var(--spacing-small);
+}
+
+/* Produtos Section */
+.products-section {
+    padding: var(--spacing-large);
+    background-color: #2e2e2e; /* Fundo escuro */
+}
+
+.products-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: var(--spacing-large);
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ajuste conforme necessário */
+    gap: var(--spacing-medium);
+}
+
+.product-item {
+    background-color: var(--primary-color); /* Usando a cor primária */
+    padding: var(--spacing-medium);
+    border-radius: 10px;
+}
+
+.product-item h3 {
+    color: var(--secondary-color); /* Usando a cor secundária para os títulos */
+}
+
+/* Contato Section */
+.contact-section {
+    padding: var(--spacing-large);
+    background-color: #1e1e1e;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: var(--spacing-medium);
+}
+
+.contact-section p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: var(--spacing-large);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background-color: var(--secondary-color);
+    padding: 12px;
+    color: #fff;
+    border-radius: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none; /* Remove bordas do botão */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-color); /* Cor de destaque ao passar o mouse */
+}
+
+/* Onde Estamos Section */
+.location-container {
+    display: flex; /* Usar flexbox para dispor o mapa e o formulário lado a lado */
+    justify-content: space-between; /* Espaçamento entre os elementos */
+    padding: var(--spacing-large); /* Espaçamento interno */
+}
+
+.map-container {
+    flex: 1; /* Permite que o mapa ocupe uma fração do espaço disponível */
+    margin-right: var(--spacing-medium); /* Espaço entre o mapa e o formulário */
+}
+
+.contact-form-container {
+    flex: 1; /* Permite que o formulário ocupe uma fração do espaço disponível */
+    background-color: #2e2e2e; /* Fundo escuro */
+    padding: var(--spacing-medium); /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto dentro do formulário */
+}
+
+.contact-form-container h2 {
+    font-size: 24px; /* Tamanho da fonte do título */
+    margin-bottom: var(--spacing-medium); /* Espaçamento abaixo do título */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .services-container,
+    .products-container {
+        grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas em telas menores */
+    }
+
+    .testimonials-container {
+        flex-direction: column; /* Alinha os depoimentos em coluna */
+    }
+
+    .contact-form {
+        flex-direction: column; /* Alinha os campos do formulário em coluna */
+    }
+
+    .location-container {
+        flex-direction: column; /* Alinha o mapa e o formulário em coluna */
+    }
+
+    .map-container {
+        margin-right: 0; /* Remove a margem em telas menores */
+        margin-bottom: var(--spacing-medium); /* Adiciona margem inferior entre o mapa e o formulário */
+    }
+}
+
+@media (max-width: 480px) {
+    .home-section h1 {
+        font-size: 36px; /* Reduz o tamanho do título na seção home */
+    }
+
+    .home-section p {
+        font-size: 16px; /* Reduz o tamanho do parágrafo na seção home */
+    }
+
+    .hero-content {
+        padding: var(--spacing-small); /* Reduz o espaçamento no conteúdo hero */
+    }
+
+    .testimonial-item {
+        width: 100%; /* Faz os depoimentos ocuparem 100% da largura */
+    }
+
+    .product-item {
+        margin-bottom: var(--spacing-medium); /* Adiciona espaçamento inferior aos produtos */
+    }
+
+    .contact-form button {
+        font-size: 16px; /* Ajusta o tamanho da fonte do botão */
+    }
+}
+
+
+/* Definindo variáveis de cor */
+:root {
+    --primary-color: #462536; 
+    --secondary-color: #bf7e84; 
+    --accent-color: #795f68; 
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    background-color: #1e1e1e;
+    line-height: 1.6;
+}
+
+/* Navegação */
+.main-header {
+    background-color: var(--primary-color); 
+    padding: 0 40px;
+    position: fixed;
+    width: 100%;
+    height: 100px; 
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff; 
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none; /* Inicialmente escondido */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Home Section */
+.home-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Formulário */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    margin-bottom: 10px; /* Ajusta o espaço entre campos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde os links de navegação em telas pequenas */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de menu no mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+    }
+}
+
+
+/* Definindo variáveis de cor */
+:root {
+    --primary-color: #462536; 
+    --secondary-color: #bf7e84; 
+    --accent-color: #795f68; 
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    background-color: #1e1e1e;
+    line-height: 1.6;
+}
+
+/* Navegação */
+.main-header {
+    background-color: var(--primary-color); 
+    padding: 0 40px;
+    position: fixed;
+    width: 100%;
+    height: 100px; 
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff; 
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none; /* Inicialmente escondido */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Home Section */
+.home-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Formulário */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    margin-bottom: 10px; /* Ajusta o espaço entre campos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde os links de navegação em telas pequenas */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de menu no mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+    }
+}
+
+
+/* Estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos para a barra de navegação */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #462536;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Ícone do menu hamburguer */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos de responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde os links no mobile por padrão */
+        flex-direction: column;
+        width: 100%;
+        background-color: #333; /* Cor de fundo do menu */
+        position: absolute;
+        top: 100px;
+        left: 0;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra os links quando o menu estiver ativo */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o ícone do menu hamburguer no mobile */
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/* Estilos de navegação */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* No mobile, o menu está oculto por padrão */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Oculta os links no mobile por padrão */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Exibe os links quando o menu está ativo */
+    }
+
+    .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+}
+
+
+/* Serviços */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas para desktop */
+    gap: var(--spacing-medium);
+}
+
+/* Produtos */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas para desktop */
+    gap: var(--spacing-medium);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr; /* 1 coluna para serviços em telas pequenas */
+    }
+
+    .products-container {
+        grid-template-columns: 1fr; /* 1 coluna para produtos em telas pequenas */
+    }
+
+    .service-item img,
+    .product-item img { 
+        width: 100%; /* Mantém a largura total */
+        height: auto; /* Ajusta a altura automaticamente */
+        object-fit: cover; /* Mantém a proporção da imagem */
+        border-radius: 10px; /* Bordas arredondadas */
+        margin-bottom: var(--spacing-small); /* Espaçamento entre imagem e texto */
+    }
+}
+
+/* Outras classes permanecem inalteradas */
+
+
+/* Estilos para a logo e nome do estúdio */
+.logo {
+    display: flex; /* Usar flexbox para alinhar logo e nome */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.logo img {
+    height: 80px; /* Ajuste a altura conforme necessário */
+    width: auto; /* Mantém a proporção da largura */
+    margin-right: 10px; /* Espaçamento entre a logo e o nome */
+}
+
+.studio-name {
+    font-size: 24px; /* Tamanho da fonte do nome */
+    color: #fff; /* Cor do texto */
+    font-weight: 600; /* Peso da fonte */
+}
+.studio-name {
+    font-size: 24px; /* Tamanho da fonte do nome */
+    color: #fff; /* Cor do texto */
+    font-weight: 600; /* Peso da fonte */
+}
+
+
+
+/* Onde Estamos Section */
+.location-container {
+    display: flex; /* Usar flexbox para dispor o mapa e o formulário lado a lado */
+    justify-content: space-between; /* Espaçamento entre os elementos */
+    padding: 50px; /* Espaçamento interno */
+}
+
+.map-container {
+    flex: 1; /* Permite que o mapa ocupe uma fração do espaço disponível */
+    margin-right: 20px; /* Espaço entre o mapa e o formulário */
+}
+
+.contact-form-container {
+    flex: 1; /* Permite que o formulário ocupe uma fração do espaço disponível */
+    background-color: #2e2e2e; /* Fundo escuro */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto dentro do formulário */
+}
+
+.contact-form-container h2 {
+    font-size: 24px; /* Tamanho da fonte do título */
+    margin-bottom: 15px; /* Margem inferior */
+}
+
+.contact-form-container p {
+    font-size: 16px; /* Tamanho da fonte da descrição */
+    margin-bottom: 20px; /* Margem inferior */
+}
+
+/* Estilo do formulário */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os campos do formulário */
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%; /* Largura total */
+    max-width: 400px; /* Para que o formulário não fique muito largo em telas grandes */
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #ffffff; /* Fundo branco para os campos de entrada */
+}
+
+textarea {
+    resize: none; /* Impede que a área de texto seja redimensionada */
+    height: 100px; /* Altura fixa para a área de texto */
+}
+
+/* Botões e estilos adicionais */
+button {
+    background-color: #bf7e84; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    padding: 12px; /* Aumenta o padding do botão */
+    font-size: 1em; /* Tamanho da fonte do botão */
+}
+
+button:hover {
+    background-color: #a05c59; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo para foco nos inputs */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none; /* Remove o contorno padrão */
+    border-color: #bf7e84; /* Cor da borda ao focar */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .location-container {
+        flex-direction: column; /* Empilha o mapa e o formulário em telas menores */
+        padding: 20px; /* Reduz o espaçamento interno */
+    }
+    
+    .map-container {
+        margin-right: 0; /* Remove a margem direita em telas menores */
+        margin-bottom: 20px; /* Adiciona espaço abaixo do mapa */
+    }
+}
+
+
+
+.btn-whatsapp {
+    display: none; /* Oculta por padrão */
+    position: fixed; /* Para posicionar no canto inferior direito */
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366; /* Cor do botão WhatsApp */
+    border-radius: 50%; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra leve */
+}
+
+.whatsapp-icon {
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Exibir botão apenas em mobile */
+@media (max-width: 768px) {
+    .btn-whatsapp {
+        display: block; /* Exibe o botão no mobile */
+    }
+}
+
+/* Exibir botão para desktop */
+@media (min-width: 769px) {
+    .btn-whatsapp {
+        display: block; /* Exibe o botão no desktop */
+        width: 30px; /* Largura do botão */
+        height: 30px; /* Altura do botão */
+    }
+
+    .whatsapp-icon {
+        width: 10%; /* A imagem ocupa 100% do botão */
+        height: auto; /* Mantém a proporção da imagem */
+    }
+}
+
+
+
+
+
+/* Estilo para o botão do WhatsApp no Desktop */
+.btn-whatsapp-desktop {
+    display: none; /* Oculta por padrão */
+    background-color: #25D366; /* Cor do botão WhatsApp */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 12px 24px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 16px; /* Tamanho da fonte */
+    margin-left: auto; /* Para alinhar à direita */
+    margin-bottom: 20px; /* Margem inferior para espaçamento */
+    position: absolute; /* Para posicionar com precisão */
+    top: 100px; /* Distância do topo da página */
+    right: 20px; /* Distância da borda direita */
+    z-index: 1000; /* Valor alto para garantir que fique à frente de outros elementos */
+}
+
+/* Mostrar o botão desktop apenas em telas maiores que 768px */
+@media (min-width: 769px) {
+    .btn-whatsapp-desktop {
+        display: inline-block; /* Exibe o botão desktop */
+    }
+}
+
+
+
+
