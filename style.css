@@ -592,3 +592,10 @@ section h2 {
     margin-right: 8px;
     color: var(--secondary-color);
 }
+/* Estilo para o texto de introdução do banner */
+.hero-content .intro-text {
+    font-size: 18px;
+    max-width: 600px;
+    margin: -10px auto 40px auto; /* Ajusta os espaços */
+    line-height: 1.7;
+}
