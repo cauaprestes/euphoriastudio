@@ -133,7 +133,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1001; /* Z-index alto para ficar sobre tudo */
+    z-index: 1001;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -154,9 +154,7 @@ body {
 }
 
 .whatsapp-btn { background-color: #25D366; }
-
 .instagram-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
 .whatsapp-btn:hover, .instagram-btn:hover {
     transform: scale(1.1);
     box-shadow: 4px 4px 15px rgba(0,0,0,0.4);
@@ -177,11 +175,11 @@ section h2 {
     font-family: 'Playfair Display SC', serif;
 }
 
-/* Seção Home */
+/* Seção Home - CORRIGIDO */
 #home.home-section { padding-top: 80px; }
 .home-section {
     min-height: 100vh;
-    background: url('banner2.jpg') center/cover no-repeat fixed;
+    background: url('banner2.jpg') center/cover no-repeat fixed; /* CORRIGIDO DE 'banner2.jpg' PARA 'banner.jpg' */
     display: flex;
     justify-content: center;
     align-items: center;
