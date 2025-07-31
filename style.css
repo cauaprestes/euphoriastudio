@@ -181,7 +181,7 @@ section h2 {
 #home.home-section { padding-top: 80px; }
 .home-section {
     min-height: 100vh;
-    background: url('banner2.jpg') center/cover no-repeat fixed;
+    background: url('banner.jpg') center/cover no-repeat fixed;
     display: flex;
     justify-content: center;
     align-items: center;
