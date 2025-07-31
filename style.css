@@ -580,3 +580,15 @@ section h2 {
 .reel-link-button i {
     margin-right: 8px;
 }
+/* Estilo para o horário de funcionamento */
+.map-container .horario {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.map-container .horario i {
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
