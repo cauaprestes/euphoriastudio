@@ -90,3 +90,48 @@ document.addEventListener('DOMContentLoaded', function () {
         appearOnScroll.observe(fader);
     });
 });
+// --- LÓGICA DO CARROSSEL DE IMAGENS ---
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = carousel.querySelector('.next');
+        const prevButton = carousel.querySelector('.prev');
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
+        // Organiza os slides um ao lado do outro
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+        slides.forEach(setSlidePosition);
+
+        const moveToSlide = (track, currentSlide, targetSlide) => {
+            track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+            currentSlide.classList.remove('current-slide');
+            targetSlide.classList.add('current-slide');
+        }
+        
+        // Seta o primeiro slide como o atual
+        track.querySelector('.carousel-slide').classList.add('current-slide');
+
+        // Quando clicar no botão da direita, move para o próximo slide
+        nextButton.addEventListener('click', e => {
+            e.stopPropagation(); // Impede que o modal abra ao clicar no botão
+            const currentSlide = track.querySelector('.current-slide');
+            const nextSlide = currentSlide.nextElementSibling;
+            if (nextSlide) {
+                moveToSlide(track, currentSlide, nextSlide);
+            }
+        });
+
+        // Quando clicar no botão da esquerda, move para o slide anterior
+        prevButton.addEventListener('click', e => {
+            e.stopPropagation(); // Impede que o modal abra ao clicar no botão
+            const currentSlide = track.querySelector('.current-slide');
+            const prevSlide = currentSlide.previousElementSibling;
+            if (prevSlide) {
+                moveToSlide(track, currentSlide, prevSlide);
+            }
+        });
+    });
